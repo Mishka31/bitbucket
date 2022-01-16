@@ -1,0 +1,14 @@
+.button {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+.name {
+  margin-bottom: 5px;
+}
+.textarea {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
