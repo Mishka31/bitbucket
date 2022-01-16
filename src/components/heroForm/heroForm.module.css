@@ -5,10 +5,14 @@
   margin-top: 20px;
 }
 .name {
-  margin-bottom: 5px;
+  margin-top: 7px;
+  margin-bottom: 3px;
 }
 .textarea {
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
+/* .labelNickname {
+  
+} */

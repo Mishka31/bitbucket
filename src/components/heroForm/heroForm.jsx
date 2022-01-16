@@ -1,13 +1,22 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import s from './heroForm.module.css'
+const axios = require('axios')
 
 const HeroForm = ({ onSubmit, listArrey }) => {
   const [nickname, setNickname] = useState('')
   const [real_name, setReal_name] = useState('')
   const [origin_description, setOrigin_description] = useState('')
+  const [superpowers, setSuperpowers] = useState('')
+  const [catch_phrase, setCatch_phrase] = useState('')
 
-  console.log(nickname, real_name, origin_description)
+  console.log(
+    nickname,
+    real_name,
+    origin_description,
+    superpowers,
+    catch_phrase
+  )
 
   const hendkeSubmit = (e) => {
     e.preventDefault()
@@ -17,7 +26,13 @@ const HeroForm = ({ onSubmit, listArrey }) => {
     //   alert(`${name} is already in contacts`)
     //   return
     // }
-    onSubmit({ nickname, real_name, origin_description })
+    onSubmit({
+      nickname,
+      real_name,
+      origin_description,
+      superpowers,
+      catch_phrase,
+    })
     reset()
   }
 
@@ -30,6 +45,10 @@ const HeroForm = ({ onSubmit, listArrey }) => {
       setReal_name(value)
     } else if (inputName === 'origin_description') {
       setOrigin_description(value)
+    } else if (inputName === 'superpowers') {
+      setSuperpowers(value)
+    } else if (inputName === 'catch_phrase') {
+      setCatch_phrase(value)
     }
   }
 
@@ -37,6 +56,8 @@ const HeroForm = ({ onSubmit, listArrey }) => {
     setNickname('')
     setReal_name('')
     setOrigin_description('')
+    setSuperpowers('')
+    setCatch_phrase('')
   }
   return (
     <div className={s.container}>
@@ -45,7 +66,7 @@ const HeroForm = ({ onSubmit, listArrey }) => {
         onSubmit={hendkeSubmit}
         autoComplete="off"
       >
-        <label>
+        <label className={s.labelNickname}>
           <p className={s.name}>Nickname *</p>
           <input
             size="30"
@@ -58,6 +79,9 @@ const HeroForm = ({ onSubmit, listArrey }) => {
             required
           />
         </label>
+        <button className={s.button} type="submit">
+          Add Image
+        </button>
         <label>
           <p className={s.name}>Real name</p>
           <input
@@ -84,15 +108,27 @@ const HeroForm = ({ onSubmit, listArrey }) => {
         </label>
 
         <label>
-          <p className={s.name}>Origin description</p>
+          <p className={s.name}>Superpowers</p>
           <textarea
             className={s.textarea}
-            name="origin_description"
+            name="superpowers"
             onChange={handleChange}
-            value={origin_description}
+            value={superpowers}
             cols="40"
-            rows="3"
+            rows="2"
           ></textarea>
+        </label>
+
+        <label>
+          <p className={s.name}>Catch phrase</p>
+          <input
+            size="30"
+            type="text"
+            className={s.imput}
+            name="catch_phrase"
+            onChange={handleChange}
+            value={catch_phrase}
+          ></input>
         </label>
 
         <button className={s.button} type="submit">
