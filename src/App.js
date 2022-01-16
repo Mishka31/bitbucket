@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className={s.container}>
-      <h1 className={s.titleH1}>Superhero</h1>
+      <h1 className={s.titleH1}>New Superhero</h1>
       <HeroForm onSubmit={formSubmitHandler} />{' '}
       {/*onSubmit={formSubmitHandler} listArrey={contacts}*/}
       <h2 className={s.titleH2}>List of Superheros</h2>
