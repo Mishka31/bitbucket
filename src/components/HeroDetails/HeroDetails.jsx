@@ -1,12 +1,6 @@
-import {
-  Link,
-  Route,
-  useLocation,
-  useHistory,
-  useRouteMatch,
-} from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import { getById } from '../../services/api'
+import { getById, deleteHeroes } from '../../services/api'
 import s from './HeroDetails.module.css'
 
 function HeroDetail(props) {
@@ -16,19 +10,16 @@ function HeroDetail(props) {
   const { slug } = props.match.params
   const id = slug.match(/[a-z0-9]+$/)[0]
 
-  //   const [searchQuery, setSearchQuery] = useState('')
-  //   const { url, path } = useRouteMatch()
-  //   console.log(url, path)
-
   useEffect(() => {
     getById(id)
       .then(setDetArray)
       .catch(({ message }) => alert(message))
+  }, [id])
 
-    //   setSearchQuery(location.state.from.search)
-  }, [])
-  //   [location.state.from.search, id]
-
+  const onDelete = () => {
+    deleteHeroes(id).catch(({ message }) => alert(message))
+    history.push(location?.state?.from ?? '/')
+  }
   const onGoBack = () => {
     history.push(location?.state?.from ?? '/')
   }
@@ -42,6 +33,7 @@ function HeroDetail(props) {
           <div>
             {detArray.imageUrl && (
               <img
+                className={s.image}
                 src={'https://superherous.herokuapp.com/' + detArray.imageUrl}
                 alt=""
               />
@@ -55,7 +47,11 @@ function HeroDetail(props) {
                 📤 Update
               </button>
             </form>
+            <button className={s.buttonDelete} type="button" onClick={onDelete}>
+              🧺 Detele SHero
+            </button>
           </div>
+
           {detArray ? (
             <div className={s.about}>
               <h1>{detArray.nickname ?? detArray.real_name}</h1>

@@ -4,13 +4,13 @@ import { getAllHeros } from '../../services/api'
 import slugify from 'slugify'
 import s from './heroList.module.css'
 
-function HeroList(props) {
+function HeroList() {
   const [superheros, setSuperheros] = useState([])
 
   useEffect(() => {
     getAllHeros().then((res) => setSuperheros(res))
   }, [])
-  console.log(slugify)
+
   return (
     <section>
       <h2 className={s.titleH2}>List of Superheros</h2>

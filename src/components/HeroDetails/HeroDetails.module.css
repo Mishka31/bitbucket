@@ -36,6 +36,23 @@
   color: rgb(88, 88, 88);
   font-size: 1em;
   font-weight: 300;
+  cursor: pointer;
+}
+.buttonDelete {
+  border: 1px solid black;
+  border-radius: 7px;
+  margin-left: 5%;
+  padding: 5px;
+  align-items: center;
+  color: rgb(88, 88, 88);
+  font-size: 1em;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.buttonUpdate:hover,
+.buttonDelete:hover {
+  background-color: rgb(223, 223, 223);
 }
 .inputfile {
   width: 0.1px;
@@ -67,4 +84,8 @@
   display: flex;
   align-items: baseline;
   margin-left: 20%;
+  margin-bottom: 10px;
+}
+.image {
+  max-width: 480px;
 }

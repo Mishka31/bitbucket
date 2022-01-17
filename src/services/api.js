@@ -12,3 +12,13 @@ export function getById(id) {
     .then(({ data }) => data.data.result)
     .catch((error) => console.log(error.message))
 }
+export function postHeroes(data) {
+  return axios.post('https://superherous.herokuapp.com/api/superheros/', data, {
+    headers: {
+      'content-type': 'multipart/form-data', // do not forget this
+    },
+  })
+}
+export function deleteHeroes(id) {
+  return axios.delete(`https://superherous.herokuapp.com/api/superheros/${id}`)
+}

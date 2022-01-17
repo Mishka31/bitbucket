@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { useLocation, useHistory } from 'react-router-dom'
 import HeroList from '../heroList/heroList'
 import s from './heroForm.module.css'
-const axios = require('axios')
+import { postHeroes } from '../../services/api'
 
 const HeroForm = () => {
+  const history = useHistory()
+  const location = useLocation()
   const [nickname, setNickname] = useState('')
   const [real_name, setReal_name] = useState('')
   const [origin_description, setOrigin_description] = useState('')
@@ -11,7 +14,6 @@ const HeroForm = () => {
   const [catch_phrase, setCatch_phrase] = useState('')
 
   const hendkeSubmit = (e) => {
-    e.preventDefault()
     const file = e.target.file.files[0]
     const data = new FormData()
     data.append('file', file)
@@ -21,21 +23,9 @@ const HeroForm = () => {
     data.append('superpowers', superpowers)
     data.append('catch_phrase', catch_phrase)
 
-    axios
-      .post('https://superherous.herokuapp.com/api/superheros/', data, {
-        headers: {
-          'content-type': 'multipart/form-data', // do not forget this
-        },
-      })
-      .then((response) => {
-        console.log(response)
-      })
-      .catch((error) => {
-        console.log(error.message)
-      })
-
+    postHeroes(data)
+    history.push(location?.state?.from ?? '/')
     reset()
-    window.location.reload()
   }
 
   const handleChange = (event) => {
