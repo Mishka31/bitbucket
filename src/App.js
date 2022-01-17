@@ -8,8 +8,8 @@ const App = () => {
   return (
     <div className={s.container}>
       <Switch>
-        <Route path="/" exact component={HeroForm} />
         <Route path="/:slug" component={HeroDetails} />
+        <Route path="/" exact component={HeroForm} />
         <Redirect to="/" />
       </Switch>
     </div>
