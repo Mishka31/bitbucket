@@ -10,7 +10,7 @@ function HeroList(props) {
   useEffect(() => {
     getAllHeros().then((res) => setSuperheros(res))
   }, [])
-
+  console.log(slugify)
   return (
     <section>
       <h2 className={s.titleH2}>List of Superheros</h2>
@@ -38,10 +38,9 @@ function HeroList(props) {
                   />
                 </div>
               </Link>
-              {/* <button className={s.button} id={hero._id}>
+              <button className={s.button} id={hero._id}>
                 Delete
-              </button> */}
-              {/* onClick={onDelete} */}
+              </button>
             </li>
           )
         })}
