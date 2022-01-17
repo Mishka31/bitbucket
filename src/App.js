@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import HeroForm from './components/heroForm/heroForm'
 import s from './App.module.css'
-import HeroList from './components/heroList/heroList'
-const axios = require('axios')
+import HeroDetails from './components/HeroDetails/HeroDetails'
 
 const App = () => {
   // const [contacts, setContacts] = useLocalStorage("contacts", "");
@@ -23,13 +23,21 @@ const App = () => {
   //     contacts.filter((contact) => contact.id !== id.target.id)
   //   )
 
+  // <Route path="/home/:slug" component={FilmDetails} />
+  // <Route path="/search/:slug" component={FilmDetails} />
+  // <Route path="/home" exact component={HomePage} />
+  // <Route path="/search" exact component={Search} />
+  // <Redirect to="/" />
+
   return (
     <div className={s.container}>
-      <h1 className={s.titleH1}>New Superhero</h1>
-      <HeroForm /> {/*onSubmit={formSubmitHandler} listArrey={contacts}*/}
-      <h2 className={s.titleH2}>List of Superheros</h2>
+      <Switch>
+        <Route path="/home" component={HeroForm} />
+        <Route path="/:slug" exact component={HeroDetails} />
+        <Redirect to="/home" />
+      </Switch>
       {/* <Filter value={filter} onSearch={onFind} /> */}
-      <HeroList /> {/*contacts={filteredContacts} onDelete={onDelete}*/}
+      {/* <HeroList /> contacts={filteredContacts} onDelete={onDelete} */}
     </div>
   )
 }

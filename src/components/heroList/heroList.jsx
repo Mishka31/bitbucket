@@ -1,37 +1,53 @@
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { getAllHeros } from '../../services/api'
+import slugify from 'slugify'
 import s from './heroList.module.css'
 
-function HeroList({ contacts, onDelete }) {
+function HeroList(props) {
+  const [superheros, setSuperheros] = useState([])
+
+  useEffect(() => {
+    getAllHeros().then((res) => setSuperheros(res))
+  }, [])
+
   return (
-    <section className={s.section}>
-      <ul>
-        {/* {contacts.map((contact) => {
+    <section>
+      <h2 className={s.titleH2}>List of Superheros</h2>
+      <ul className={s.ul}>
+        {superheros.map((hero) => {
           return (
-            <li key={contact.id} className={s.li}>
-              <span className={s.name}>{contact.name}:</span>{' '}
-              <a className={s.number} href="tel:{contact.number}">
-                {contact.number}
-              </a>
-              <button className={s.button} id={contact.id} onClick={onDelete}>
+            <li key={hero._id} className={s.li}>
+              <Link
+                to={{
+                  pathname: `${slugify(
+                    `${hero.nickname ?? hero.origin_description} ${hero._id}`,
+                    {
+                      lower: true,
+                    }
+                  )}`,
+                  //   state: { from: location },
+                }}
+              >
+                <div className={s.nameAndImg}>
+                  <h4 className={s.name}>{hero.nickname}</h4>{' '}
+                  <img
+                    src={'https://superherous.herokuapp.com/' + hero.imageUrl}
+                    alt={hero.nickname}
+                    className={s.img}
+                  />
+                </div>
+              </Link>
+              {/* <button className={s.button} id={hero._id}>
                 Delete
-              </button>
+              </button> */}
+              {/* onClick={onDelete} */}
             </li>
           )
-        })} */}
+        })}
       </ul>
     </section>
   )
 }
 
 export default HeroList
-
-// HeroList.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-//   onDelete: PropTypes.func,
-// }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PropTypes from 'prop-types'
+import HeroList from '../heroList/heroList'
 import s from './heroForm.module.css'
 const axios = require('axios')
 
@@ -35,6 +35,7 @@ const HeroForm = () => {
       })
 
     reset()
+    window.location.reload()
   }
 
   const handleChange = (event) => {
@@ -62,6 +63,7 @@ const HeroForm = () => {
   }
   return (
     <div className={s.container}>
+      <h1 className={s.titleH1}>New Superhero</h1>
       <form
         id="form"
         className={s.imputAndButton}
@@ -135,14 +137,9 @@ const HeroForm = () => {
           Add Superhero
         </button>
       </form>
+      <HeroList />
     </div>
   )
 }
 
 export default HeroForm
-
-HeroForm.propTypes = {
-  onSubmit: PropTypes.func,
-  value: PropTypes.string,
-  name: PropTypes.string,
-}

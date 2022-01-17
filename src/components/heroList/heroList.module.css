@@ -1,0 +1,23 @@
+.ul {
+  display: flex;
+  justify-content: center;
+}
+.li {
+  display: block;
+  margin: 5px;
+}
+.name {
+  padding: 5px;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.img {
+  height: 100px;
+  max-width: 180px;
+}
+.nameAndImg {
+  display: block;
+  max-width: 180px;
+}
