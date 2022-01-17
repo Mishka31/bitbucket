@@ -3,36 +3,37 @@ import PropTypes from 'prop-types'
 import s from './heroForm.module.css'
 const axios = require('axios')
 
-const HeroForm = ({ onSubmit, listArrey }) => {
+const HeroForm = () => {
   const [nickname, setNickname] = useState('')
   const [real_name, setReal_name] = useState('')
   const [origin_description, setOrigin_description] = useState('')
   const [superpowers, setSuperpowers] = useState('')
   const [catch_phrase, setCatch_phrase] = useState('')
 
-  console.log(
-    nickname,
-    real_name,
-    origin_description,
-    superpowers,
-    catch_phrase
-  )
-
   const hendkeSubmit = (e) => {
     e.preventDefault()
-    // const nameFromArrey = listArrey.map((c) => c.name.toLowerCase())
-    // if (nameFromArrey.includes(name.toLowerCase())) {
-    //   reset()
-    //   alert(`${name} is already in contacts`)
-    //   return
-    // }
-    onSubmit({
-      nickname,
-      real_name,
-      origin_description,
-      superpowers,
-      catch_phrase,
-    })
+    const file = e.target.file.files[0]
+    const data = new FormData()
+    data.append('file', file)
+    data.append('nickname', nickname)
+    data.append('real_name', real_name)
+    data.append('origin_description', origin_description)
+    data.append('superpowers', superpowers)
+    data.append('catch_phrase', catch_phrase)
+
+    axios
+      .post('https://superherous.herokuapp.com/api/superheros/', data, {
+        headers: {
+          'content-type': 'multipart/form-data', // do not forget this
+        },
+      })
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error.message)
+      })
+
     reset()
   }
 
@@ -62,36 +63,35 @@ const HeroForm = ({ onSubmit, listArrey }) => {
   return (
     <div className={s.container}>
       <form
+        id="form"
         className={s.imputAndButton}
         onSubmit={hendkeSubmit}
         autoComplete="off"
+        encType="multipart/form-data"
       >
+        <p className={s.name}>Nickname *</p>
         <label className={s.labelNickname}>
-          <p className={s.name}>Nickname *</p>
           <input
-            size="30"
+            size="36"
             type="text"
             className={s.imput}
             onChange={handleChange}
             value={nickname}
             name="nickname"
-            placeholder=" example: 'Spider-Man'"
+            placeholder=" required"
             required
           />
+          <input className={s.dataInput} name="file" type="file" id="file" />
         </label>
-        <button className={s.button} type="submit">
-          Add Image
-        </button>
         <label>
           <p className={s.name}>Real name</p>
           <input
-            size="30"
+            size="36"
             type="text"
             className={s.imput}
             onChange={handleChange}
             value={real_name}
             name="real_name"
-            required
           />
         </label>
 
@@ -102,7 +102,7 @@ const HeroForm = ({ onSubmit, listArrey }) => {
             name="origin_description"
             onChange={handleChange}
             value={origin_description}
-            cols="40"
+            cols="36"
             rows="3"
           ></textarea>
         </label>
@@ -114,7 +114,7 @@ const HeroForm = ({ onSubmit, listArrey }) => {
             name="superpowers"
             onChange={handleChange}
             value={superpowers}
-            cols="40"
+            cols="36"
             rows="2"
           ></textarea>
         </label>
@@ -122,7 +122,7 @@ const HeroForm = ({ onSubmit, listArrey }) => {
         <label>
           <p className={s.name}>Catch phrase</p>
           <input
-            size="30"
+            size="36"
             type="text"
             className={s.imput}
             name="catch_phrase"

@@ -8,11 +8,31 @@
   margin-top: 7px;
   margin-bottom: 3px;
 }
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 290px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.buttonImg {
+  display: block;
+  font-size: 0.9em;
+  font-weight: 300;
+  cursor: pointer;
+}
 .textarea {
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
-/* .labelNickname {
-  
-} */
+.dataInput {
+  display: block;
+  margin-top: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 35px;
+  margin-bottom: 20px;
+}
