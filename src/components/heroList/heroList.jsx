@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getAllHeros } from '../../services/api'
 import slugify from 'slugify'
 import s from './heroList.module.css'
@@ -20,7 +20,7 @@ function HeroList(props) {
             <li key={hero._id} className={s.li}>
               <Link
                 to={{
-                  pathname: `${slugify(
+                  pathname: `home/${slugify(
                     `${hero.nickname ?? hero.origin_description} ${hero._id}`,
                     {
                       lower: true,
