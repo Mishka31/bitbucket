@@ -1,8 +1,11 @@
-// import React, { useState } from 'react'
+import React, { useState } from 'react'
 import HeroForm from './components/heroForm/heroForm'
 import s from './App.module.css'
+import HeroList from './components/heroList/heroList'
+const axios = require('axios')
 
 const App = () => {
+  // const [contacts, setContacts] = useLocalStorage("contacts", "");
   // const [filter, setfilter] = useState('')
 
   // const lowerFilter = filter.toLowerCase()
@@ -25,8 +28,8 @@ const App = () => {
       <h1 className={s.titleH1}>New Superhero</h1>
       <HeroForm /> {/*onSubmit={formSubmitHandler} listArrey={contacts}*/}
       <h2 className={s.titleH2}>List of Superheros</h2>
-      <Filter value={filter} onSearch={onFind} />
-      <ContactList contacts={filteredContacts} onDelete={onDelete} />
+      {/* <Filter value={filter} onSearch={onFind} /> */}
+      <HeroList /> {/*contacts={filteredContacts} onDelete={onDelete}*/}
     </div>
   )
 }
