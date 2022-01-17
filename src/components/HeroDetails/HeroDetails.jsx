@@ -15,7 +15,6 @@ function HeroDetail(props) {
   const [detArray, setDetArray] = useState([])
   const { slug } = props.match.params
   const id = slug.match(/[a-z0-9]+$/)[0]
-  console.log(detArray)
 
   //   const [searchQuery, setSearchQuery] = useState('')
   //   const { url, path } = useRouteMatch()
@@ -47,10 +46,14 @@ function HeroDetail(props) {
                 alt=""
               />
             )}
-            <form enctype="multipart/form-data">
-              <input name="file" type="file" multiple />
-
-              <button type="submit">Upload</button>
+            <form className={s.formContainer} encType="multipart/form-data">
+              <input id="file" className={s.inputfile} type="file" multiple />
+              <label className={s.label} htmlFor="file">
+                🧷 attach photo
+              </label>
+              <button className={s.buttonUpdate} type="submit">
+                📤 Update
+              </button>
             </form>
           </div>
           {detArray ? (

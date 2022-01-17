@@ -27,3 +27,44 @@
   margin-left: auto;
   margin-right: auto;
 }
+.buttonUpdate {
+  border: 1px solid black;
+  border-radius: 7px;
+  margin-left: 5%;
+  padding: 5px;
+  align-items: center;
+  color: rgb(88, 88, 88);
+  font-size: 1em;
+  font-weight: 300;
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  border: 1px solid black;
+  border-radius: 7px;
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 1em;
+  font-weight: 300;
+  color: rgb(88, 88, 88);
+  background-color: rgb(235, 235, 235);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: rgb(223, 223, 223);
+}
+.formContainer {
+  display: flex;
+  align-items: baseline;
+  margin-left: 20%;
+}
