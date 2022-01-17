@@ -7,7 +7,11 @@
   border: 1px solid burlywood;
 }
 .about {
-  margin-left: 20px;
+  max-width: 475px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .link {
   width: 380px;

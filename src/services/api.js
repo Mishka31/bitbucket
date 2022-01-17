@@ -9,6 +9,6 @@ export function getAllHeros() {
 export function getById(id) {
   return axios
     .get(`https://superherous.herokuapp.com/api/superheros/${id}`)
-    .then(({ data }) => console.log(data))
+    .then(({ data }) => data.data.result)
     .catch((error) => console.log(error.message))
 }
