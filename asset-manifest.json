@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/bitbucket/static/css/main.f42f72ac.css",
-    "main.js": "/bitbucket/static/js/main.f6e8e5c8.js",
+    "main.js": "/bitbucket/static/js/main.c549cde4.js",
     "index.html": "/bitbucket/index.html",
     "main.f42f72ac.css.map": "/bitbucket/static/css/main.f42f72ac.css.map",
-    "main.f6e8e5c8.js.map": "/bitbucket/static/js/main.f6e8e5c8.js.map"
+    "main.c549cde4.js.map": "/bitbucket/static/js/main.c549cde4.js.map"
   },
   "entrypoints": [
     "static/css/main.f42f72ac.css",
-    "static/js/main.f6e8e5c8.js"
+    "static/js/main.c549cde4.js"
   ]
 }
