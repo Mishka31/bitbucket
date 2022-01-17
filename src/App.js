@@ -33,7 +33,7 @@ const App = () => {
     <div className={s.container}>
       <Switch>
         <Route path="/home" component={HeroForm} />
-        <Route path="/:slug" exact component={HeroDetails} />
+        <Route path="/:slug" component={HeroDetails} />
         <Redirect to="/home" />
       </Switch>
       {/* <Filter value={filter} onSearch={onFind} /> */}

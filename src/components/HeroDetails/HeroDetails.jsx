@@ -1,6 +1,20 @@
+import {
+  Link,
+  Route,
+  useLocation,
+  useHistory,
+  useRouteMatch,
+} from 'react-router-dom'
+import { getById } from '../../services/api'
+import s from './HeroDetails.module.css'
+
 function HeroDetail(props) {
-  //   const history = useHistory()
-  //   const location = useLocation()
+  const history = useHistory()
+  const location = useLocation()
+
+  console.log(
+    getById('61e546d2c273b9cc3890a43a').then((res) => console.log(res))
+  )
   //   const [detArray, setDetArray] = useState([])
   //   const [searchQuery, setSearchQuery] = useState('')
   //   const { slug } = props.match.params
@@ -17,19 +31,17 @@ function HeroDetail(props) {
   //     setSearchQuery(location.state.from.search)
   //   }, [location.state.from.search, id])
 
-  //   const onGoBack = () => {
-  //     history.push(location?.state?.from ?? '/')
-  //   }
-
+  const onGoBack = () => {
+    history.push(location?.state?.from ?? '/')
+  }
   return (
     <>
-      {/* <button className={s.button} type="button" onClick={onGoBack}>
+      <button className={s.button} type="button" onClick={onGoBack}>
         ⬅ Go back
-      </button> */}
-      <h1>asdasdasdasdad</h1>
-      {/* <div className={s.mainContainer}>
-          <div className={s.container}>
-            {detArray.poster_path && <img src={`${STDImg}${detArray.poster_path}`} alt="" />}
+      </button>
+      <div>
+        <div className={s.container}>
+          {/* {detArray.poster_path && <img src={`${STDImg}${detArray.poster_path}`} alt="" />}
             {detArray ? (
               <div className={s.about}>
                 <h1>{detArray.name ?? detArray.title}</h1>
@@ -75,18 +87,9 @@ function HeroDetail(props) {
               </div>
             ) : (
               <p className={s.about}>"The resource you requested could not be found"</p>
-            )}
-          </div>
-          <div>
-            <Suspense fallback={<h1>DOWNLOAD</h1>}>
-              <Route path={`${props.match.path}/cast`} render={(props) => <Cast {...props} />} />
-              <Route
-                path={`${props.match.path}/reviews`}
-                render={(props) => <Reviews {...props} />}
-              />
-            </Suspense>
-          </div>
-        </div> */}
+            )} */}
+        </div>
+      </div>
     </>
   )
 }
