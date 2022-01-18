@@ -2,7 +2,7 @@ import { useState } from 'react'
 import s from './Modal.module.css'
 import { putHero } from '../../services/api'
 
-export function Modal({ id, detArray }) {
+export function Modal({ id, detArray, onModalClose }) {
   const [nickname, setNickname] = useState(detArray.nickname)
   const [real_name, setReal_name] = useState(detArray.real_name)
   const [origin_description, setOrigin_description] = useState(
@@ -19,7 +19,6 @@ export function Modal({ id, detArray }) {
     data1.append('superpowers', superpowers)
     data1.append('catch_phrase', catch_phrase)
     putHero(data1, id)
-    // history.push(location?.state?.from ?? '/')
   }
 
   const handleChange = (event) => {
@@ -37,17 +36,8 @@ export function Modal({ id, detArray }) {
       setCatch_phrase(value)
     }
   }
-
-  const reset = () => {
-    setNickname('')
-    setReal_name('')
-    setOrigin_description('')
-    setSuperpowers('')
-    setCatch_phrase('')
-  }
-
   return (
-    <div className={s.Overlay}>
+    <div className={s.Overlay} onClick={onModalClose}>
       {/* onClick={onModalClose} */}
       <div className={s.Modal}>
         <form
@@ -67,10 +57,6 @@ export function Modal({ id, detArray }) {
               value={nickname}
               name="nickname"
             />
-            {/* <input className={s.dataInput} name="file" type="file" id="file" />
-            <label className={s.label} htmlFor="file">
-              🧷 attach photo
-            </label> */}
           </label>
           <label>
             <p className={s.name}>Real name</p>

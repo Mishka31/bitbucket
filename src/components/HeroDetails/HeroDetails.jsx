@@ -37,12 +37,15 @@ function HeroDetail(props) {
   const onClickPciture = (e, alt) => {
     setShowModal(true)
   }
-
+  const onCloseByOverlay = (e) => {
+    if (e.currentTarget === e.target) {
+      setShowModal(false)
+    }
+  }
   return (
     <>
       {showModal && (
-        <Modal id={id} detArray={detArray} />
-        // onModalClose={this.onCloseByOverlay}  alt={tag}
+        <Modal id={id} detArray={detArray} onModalClose={onCloseByOverlay} />
       )}
       <button className={s.button} type="button" onClick={onGoBack}>
         ⬅ Go back
