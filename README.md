@@ -1,4 +1,4 @@
-# JavaScript Engineer Test ["Superheros"](https://mishka31.github.io/bitbucket/) 
+# JavaScript Engineer Test ["Superheros"]
  
 ![](public/1.JPG)
 
