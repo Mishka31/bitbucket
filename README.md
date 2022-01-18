@@ -21,12 +21,6 @@ CRUD technology was used to write the database
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npm run deploy`
-Deploying the app for production from the `build` folder.\
-in gitHup-pages automatically, pre-launching the PreDeploy script that creates the Build folder and prepares files for Deploy
-
-
-
 ### Launch step by step web application:
 
 1. Open the project repository in the development environment application and enter the command "npm start" in the Terminal. After a successful launch, you will get the following output:
