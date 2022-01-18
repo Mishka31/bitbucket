@@ -7,21 +7,15 @@ import s from './heroList.module.css'
 function HeroList() {
   const [superheros, setSuperheros] = useState([])
 
-  useEffect(() => {
-    getAllHeros().then((res) => {
-      if (res.length !== superheros.length) {
-        setSuperheros(res)
-      }
-    })
-  }, [superheros])
+  getAllHeros().then((res) => {
+    if (res.length !== superheros.length) {
+      setSuperheros(res)
+    }
+  })
 
   const onDelete = (e) => {
     deleteHeroes(e.target.id)
-    getAllHeros().then((res) => {
-      if (res.length !== superheros.length) {
-        setSuperheros(res)
-      }
-    })
+    getAllHeros().then((res) => setSuperheros(res))
   }
   return (
     <section>
