@@ -1,14 +1,16 @@
 import { useLocation, useHistory } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import { getById, deleteHeroes } from '../../services/api'
+import { getById, deleteHeroes, putHero } from '../../services/api'
+import Modal from '../Modal/Modal'
 import s from './HeroDetails.module.css'
 
 function HeroDetail(props) {
   const history = useHistory()
   const location = useLocation()
   const [detArray, setDetArray] = useState([])
+  const [showModal, setShowModal] = useState(false)
   const { slug } = props.match.params
-  const id = slug.match(/[a-z0-9]+$/)[0]
+  let id = slug.match(/[a-z0-9]+$/)[0]
 
   useEffect(() => {
     getById(id)
@@ -23,8 +25,25 @@ function HeroDetail(props) {
   const onGoBack = () => {
     history.push(location?.state?.from ?? '/')
   }
+
+  const hendkeSubmit = async (e) => {
+    e.preventDefault()
+    const file = e.target.file.files[0]
+    const data = new FormData()
+    data.append('file', file)
+    await putHero(data, id)
+    getById(id).then(setDetArray)
+  }
+  const onClickPciture = (e, alt) => {
+    setShowModal(true)
+  }
+
   return (
     <>
+      {showModal && (
+        <Modal id={id} detArray={detArray} />
+        // onModalClose={this.onCloseByOverlay}  alt={tag}
+      )}
       <button className={s.button} type="button" onClick={onGoBack}>
         ⬅ Go back
       </button>
@@ -38,7 +57,11 @@ function HeroDetail(props) {
                 alt=""
               />
             )}
-            <form className={s.formContainer} encType="multipart/form-data">
+            <form
+              onSubmit={hendkeSubmit}
+              className={s.formContainer}
+              encType="multipart/form-data"
+            >
               <input id="file" className={s.inputfile} type="file" multiple />
               <label className={s.label} htmlFor="file">
                 🧷 attach photo
@@ -49,6 +72,13 @@ function HeroDetail(props) {
             </form>
             <button className={s.buttonDelete} type="button" onClick={onDelete}>
               🧺 Detele SHero
+            </button>
+            <button
+              className={s.buttonDelete}
+              type="button"
+              onClick={onClickPciture}
+            >
+              🔁 update inf
             </button>
           </div>
 

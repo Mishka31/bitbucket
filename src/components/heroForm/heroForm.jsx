@@ -14,6 +14,7 @@ const HeroForm = () => {
   const [catch_phrase, setCatch_phrase] = useState('')
 
   const hendkeSubmit = (e) => {
+    e.preventDefault()
     const file = e.target.file.files[0]
     const data = new FormData()
     data.append('file', file)

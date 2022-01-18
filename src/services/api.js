@@ -19,6 +19,17 @@ export function postHeroes(data) {
     },
   })
 }
+export function putHero(data, id) {
+  return axios.put(
+    `https://superherous.herokuapp.com/api/superheros/${id}`,
+    data,
+    {
+      headers: {
+        'content-type': 'multipart/form-data', // do not forget this
+      },
+    }
+  )
+}
 export function deleteHeroes(id) {
   return axios.delete(`https://superherous.herokuapp.com/api/superheros/${id}`)
 }
