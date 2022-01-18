@@ -1,9 +1,12 @@
 # JavaScript Engineer Test ["Superheros"](https://mishka31.github.io/bitbucket/) 
  
 ![](public/1.JPG)
-![](public/2.mp4)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Front-End 
+... was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Back-End
+... was bootstrapped with [Heroku](https://superherous.herokuapp.com) and files on gh-repository [Heroku](https://superherous.herokuapp.com)
 
 
 ### Available Scripts in Front-End
