@@ -39,3 +39,5 @@ After that, you can use the application
 Mandatory field is "Nickname" and attached photo. The photo should not exceed 2048 kilobytes:
 
 ![](public/3.JPG)
+
+3.
