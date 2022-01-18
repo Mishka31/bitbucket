@@ -7,11 +7,14 @@ import s from './heroList.module.css'
 function HeroList() {
   const [superheros, setSuperheros] = useState([])
 
-  getAllHeros().then((res) => {
-    if (res.length !== superheros.length) {
-      setSuperheros(res)
-    }
-  })
+  getAllHeros().then(
+    (res) => {
+      if (res.length !== superheros.length) {
+        setSuperheros(res)
+      }
+    },
+    [superheros]
+  )
 
   const onDelete = (e) => {
     deleteHeroes(e.target.id)

@@ -26,6 +26,7 @@ const HeroForm = () => {
 
     postHeroes(data)
     history.push(location?.state?.from ?? '/')
+
     reset()
   }
 
