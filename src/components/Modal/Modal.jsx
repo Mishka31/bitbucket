@@ -11,14 +11,15 @@ export function Modal({ id, detArray, onModalClose }) {
   const [superpowers, setSuperpowers] = useState(detArray.superpowers)
   const [catch_phrase, setCatch_phrase] = useState(detArray.catch_phrase)
 
-  const hendkeSubmit = (e) => {
+  const hendkeSubmit = async (e) => {
+    console.log(id)
     const data1 = new FormData()
     data1.append('nickname', nickname)
     data1.append('real_name', real_name)
     data1.append('origin_description', origin_description)
     data1.append('superpowers', superpowers)
     data1.append('catch_phrase', catch_phrase)
-    putHero(data1, id)
+    await putHero(data1, id)
   }
 
   const handleChange = (event) => {
@@ -41,7 +42,6 @@ export function Modal({ id, detArray, onModalClose }) {
       {/* onClick={onModalClose} */}
       <div className={s.Modal}>
         <form
-          id="form"
           className={s.imputAndButton}
           onSubmit={hendkeSubmit}
           autoComplete="off"

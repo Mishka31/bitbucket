@@ -32,8 +32,10 @@ function HeroDetail(props) {
     const data = new FormData()
     data.append('file', file)
     await putHero(data, id)
+
     getById(id).then(setDetArray)
   }
+
   const onClickPciture = (e, alt) => {
     setShowModal(true)
   }
