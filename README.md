@@ -1,4 +1,4 @@
-# JavaScript Engineer Test ["Superheros"]
+# JavaScript Engineer Test "Superheros"
  
 ![](public/1.JPG)
 
