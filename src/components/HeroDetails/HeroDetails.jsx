@@ -30,7 +30,7 @@ function HeroDetail(props) {
       </button>
       <div>
         <div className={s.container}>
-          <div>
+          <div className={s.imgAndBtnContainer}>
             {detArray.imageUrl && (
               <img
                 className={s.image}

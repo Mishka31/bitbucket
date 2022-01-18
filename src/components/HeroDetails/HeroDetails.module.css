@@ -1,10 +1,16 @@
 .container {
+  opacity: 0;
+  animation: ani 2.5s forwards;
+
   width: 900px;
   margin: auto;
   margin-top: 20px;
   display: flex;
   align-items: center;
   border: 1px solid burlywood;
+  border-radius: 10px;
+  background: rgb(236, 236, 243);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .about {
   max-width: 475px;
@@ -12,6 +18,14 @@
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
+}
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .link {
   width: 380px;
@@ -41,7 +55,6 @@
 .buttonDelete {
   border: 1px solid black;
   border-radius: 7px;
-  margin-left: 5%;
   padding: 5px;
   align-items: center;
   color: rgb(88, 88, 88);
@@ -88,4 +101,8 @@
 }
 .image {
   max-width: 480px;
+  border-radius: 5px;
+}
+.imgAndBtnContainer {
+  padding: 10px;
 }

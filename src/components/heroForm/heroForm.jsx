@@ -74,6 +74,9 @@ const HeroForm = () => {
             required
           />
           <input className={s.dataInput} name="file" type="file" id="file" />
+          <label className={s.label} htmlFor="file">
+            🧷 attach photo
+          </label>
         </label>
         <label>
           <p className={s.name}>Real name</p>

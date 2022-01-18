@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getAllHeros } from '../../services/api'
+import { getAllHeros, deleteHeroes } from '../../services/api'
 import slugify from 'slugify'
 import s from './heroList.module.css'
 
@@ -8,9 +8,21 @@ function HeroList() {
   const [superheros, setSuperheros] = useState([])
 
   useEffect(() => {
-    getAllHeros().then((res) => setSuperheros(res))
-  }, [])
+    getAllHeros().then((res) => {
+      if (res.length !== superheros.length) {
+        setSuperheros(res)
+      }
+    })
+  }, [superheros])
 
+  const onDelete = (e) => {
+    deleteHeroes(e.target.id)
+    getAllHeros().then((res) => {
+      if (res.length !== superheros.length) {
+        setSuperheros(res)
+      }
+    })
+  }
   return (
     <section>
       <h2 className={s.titleH2}>List of Superheros</h2>
@@ -19,6 +31,7 @@ function HeroList() {
           return (
             <li key={hero._id} className={s.li}>
               <Link
+                className={s.Link}
                 to={{
                   pathname: `home/${slugify(
                     `${hero.nickname ?? hero.origin_description} ${hero._id}`,
@@ -38,7 +51,7 @@ function HeroList() {
                   />
                 </div>
               </Link>
-              <button className={s.button} id={hero._id}>
+              <button className={s.button} id={hero._id} onClick={onDelete}>
                 Delete
               </button>
             </li>
