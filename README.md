@@ -6,7 +6,7 @@
 ... was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### Back-End
-... was bootstrapped with [Heroku](https://superherous.herokuapp.com) and files on gh-repository [Heroku](https://superherous.herokuapp.com)
+... was bootstrapped with [Heroku](https://id.heroku.com/login) and files on gh-repository [Bitbucket-Node.js](https://github.com/Mishka31/bitbucket-node.git)
 
 
 ### Available Scripts in Front-End
