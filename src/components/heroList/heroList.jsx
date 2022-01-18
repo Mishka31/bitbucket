@@ -20,6 +20,7 @@ function HeroList() {
     deleteHeroes(e.target.id)
     getAllHeros().then((res) => setSuperheros(res))
   }
+
   return (
     <section>
       <h2 className={s.titleH2}>List of Superheros</h2>

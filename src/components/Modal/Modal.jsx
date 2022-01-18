@@ -12,7 +12,6 @@ export function Modal({ id, detArray, onModalClose }) {
   const [catch_phrase, setCatch_phrase] = useState(detArray.catch_phrase)
 
   const hendkeSubmit = async (e) => {
-    console.log(id)
     const data1 = new FormData()
     data1.append('nickname', nickname)
     data1.append('real_name', real_name)
