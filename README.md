@@ -1,6 +1,8 @@
-# JavaScript Engineer Test "Superheros"
-[Superheros](https://mishka31.github.io/bitbucket/)  
-![Add contact](img/add.JPG)  
+# JavaScript Engineer Test ["Superheros"](https://mishka31.github.io/bitbucket/) 
+ 
+![](public/1.JPG)
+![](public/2.mp4)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
