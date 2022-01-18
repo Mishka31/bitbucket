@@ -39,14 +39,21 @@ After that, you can use the application
 Mandatory field is "Nickname" and attached photo. The photo should not exceed 2048 kilobytes:
 
 ![](public/3.JPG)
-After that, under the form, you can immediately see the list of added superheroes.
+
+After entering information about the Superhero, you need to click "Add Superhero". Under the form, you can immediately see the list of added superheroes.
 
 3. You can remove a hero card immediately from the list by pressing the "Delete" button
 
 4. To view the full information about the Superhero, you need to click on the hero card, in the new Route you will see a card with detailed information
 
 5.  In the Hero card you can see all the information about the Superhero.
+
 You also have the opportunity to change the photo, for this you should first attach the photo you have chosen by clicking the "attach photo" button, then click "upload"
-By clicking the "update information" button, you can edit the information about the Superhero. From the same card, you can also remove the hero by clicking the "Delete Hero" button:
+By clicking the "update information" button, you can edit the information about the Superhero. From the same card, you can also remove the hero by clicking the "Delete Hero" button: "1" on screenShot
+
 ![](public/4.JPG)
+
+You can also go back by pressing the "go back" button "2" on screenShot
+
+
 
